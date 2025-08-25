@@ -28,5 +28,5 @@ model:
   layer: models
 
 predictions:
-  type pandas.DataFrameDataSet
+  type: pandas.DataFrameDataSet
   layer: results
