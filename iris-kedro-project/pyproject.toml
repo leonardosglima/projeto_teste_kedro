@@ -28,3 +28,6 @@ attr = "iris_kedro_project.__version__"
 [tool.setuptools.packages.find]
 where = [ "src",]
 namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "07e5e4790bbc4371880a28aae291a670"
