@@ -2,3 +2,31 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+
+# conf/base/catalog.yml
+
+iris_raw:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/iris.csv
+
+X_train:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/X_train.pq
+
+X_test:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/X_test.pq
+
+y_train:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/y_test.pq
+
+model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/model.pkl
+  layer: models
+
+predictions:
+  type pandas.DataFrameDataSet
+  layer: results
