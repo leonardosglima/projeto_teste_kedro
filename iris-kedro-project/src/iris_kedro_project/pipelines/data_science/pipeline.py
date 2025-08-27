@@ -8,7 +8,8 @@ def create_pipeline(**kwargs) -> Pipeline:
         [
             node(
                 func=split_data,
-                inputs=['iris_raw', 'params:test_size', 'params:random_state', 'params:features', 'params:target_column'],
+                inputs=["iris_raw", "parameters"],  # <-- CORREÇÃO AQUI
+                #inputs=['iris_raw', 'params:test_size', 'params:random_state', 'params:features', 'params:target_column'],
                 outputs=['X_train', 'X_test', 'y_train', 'y_test'],
                 name='split_data_node',
             ),

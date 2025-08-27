@@ -1,16 +1,18 @@
 """Project pipelines."""
-from __future__ import annotations  # <--- Boa prática, mantida do código original
+from __future__ import annotations
 from typing import Dict
 from kedro.pipeline import Pipeline
 
-# Importação explícita do nosso pipeline (método do tutorial)
-from iris_kedro_project.pipelines import data_science
+# --- INÍCIO DA CORREÇÃO ---
+# Importamos a função create_pipeline DIRETAMENTE do módulo pipeline.py
+from iris_kedro_project.pipelines.data_science.pipeline import create_pipeline as data_science_pipeline_func
 
-def register_pipelines() -> dict[str, Pipeline]: # <- a anotação de tipo aqui beneficia do __future__
+def register_pipelines() -> dict[str, Pipeline]:
     """Register the project's pipelines."""
     
-    # Criação e registo manual (método do tutorial)
-    data_science_pipeline = data_science.create_pipeline()
+    # Chamamos a função diretamente
+    data_science_pipeline = data_science_pipeline_func()
+    # --- FIM DA CORREÇÃO ---
     
     return {
         "__default__": data_science_pipeline,

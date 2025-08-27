@@ -7,23 +7,23 @@
 # conf/base/catalog.yml
 
 iris_raw:
-  type: pandas.CSVDataSet
+  type: pandas.CSVDataset
   filepath: data/01_raw/iris.csv
 
 X_train:
-  type: pandas.ParquetDataSet
+  type: pandas.ParquetDataset
   filepath: data/02_intermediate/X_train.pq
 
 X_test:
-  type: pandas.ParquetDataSet
+  type: pandas.ParquetDataset
   filepath: data/02_intermediate/X_test.pq
 
 y_train:
-  type: pandas.ParquetDataSet
+  type: pandas.ParquetDataset
   filepath: data/02_intermediate/y_test.pq
 
 model:
-  type: pickle.PickleDataSet
+  type: pickle.PickleDataset
   filepath: data/06_models/model.pkl
   layer: models
 
