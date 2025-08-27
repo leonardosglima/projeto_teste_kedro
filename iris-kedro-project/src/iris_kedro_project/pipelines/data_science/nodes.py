@@ -33,3 +33,9 @@ def report_accuracy(predictions: pd.Series, y_test: pd.Series):
     accuracy = accuracy_score(y_test, predictions)
     log = logging.getLogger(__name__)
     log.info(f"Acurácia do modelo: {accuracy:.3f}")
+
+
+
+#breakpoint()
+
+
