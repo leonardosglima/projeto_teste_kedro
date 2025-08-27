@@ -16,6 +16,9 @@ def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
         X, y, test_size=parameters["test_size"], random_state=parameters["random_state"]
     )
     
+    y_train = y_train.to_frame(name="target")  # dá um nome para a coluna
+    y_test = y_test.to_frame(name="target")  # dá um nome para a coluna
+
     return X_train, X_test, y_train, y_test
 
 def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression:
@@ -26,7 +29,8 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LogisticRegression
 
 def predict(model: LogisticRegression, X_test: pd.DataFrame) -> pd.Series:
     """Usa o modelo treinado para fazer previsões."""
-    return model.predict(X_test)
+    y_pred = model.predict(X_test)
+    return pd.DataFrame(y_pred, columns=["prediction"])
 
 def report_accuracy(predictions: pd.Series, y_test: pd.Series):
     """Calcula e loga a acurácia do modelo."""

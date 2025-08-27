@@ -7,26 +7,29 @@
 # conf/base/catalog.yml
 
 iris_raw:
-  type: pandas.CSVDataset
+  type: pandas.CSVDataset      # s minúsculo
   filepath: data/01_raw/iris.csv
 
 X_train:
-  type: pandas.ParquetDataset
+  type: pandas.ParquetDataset # s minúsculo
   filepath: data/02_intermediate/X_train.pq
 
 X_test:
-  type: pandas.ParquetDataset
+  type: pandas.ParquetDataset # s minúsculo
   filepath: data/02_intermediate/X_test.pq
 
 y_train:
-  type: pandas.ParquetDataset
+  type: pandas.ParquetDataset # s minúsculo
+  filepath: data/02_intermediate/y_train.pq
+
+y_test:
+  type: pandas.ParquetDataset # s minúsculo
   filepath: data/02_intermediate/y_test.pq
 
 model:
-  type: pickle.PickleDataset
+  type: pickle.PickleDataset   # s minúsculo
   filepath: data/06_models/model.pkl
-  #layer: models
 
 predictions:
-  type: pandas.DataFrameDataSet
-  layer: results
+  type: pandas.ParquetDataset
+  filepath: data/07_model_output/predictions.parquet
